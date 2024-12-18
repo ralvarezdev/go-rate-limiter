@@ -1,0 +1,19 @@
+# IDE folders
+/.idea
+/.vscode
+
+# Environment variables
+/**/*.env
+
+# Executable files
+/**/*.exe
+
+# Private and public keys
+/**/*.ed
+/**/*.pub
+/**/*.pem
+
+# Commands
+/**/*.cmd
+/**/*.sh
+/**/*.bat
