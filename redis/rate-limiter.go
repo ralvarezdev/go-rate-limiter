@@ -24,7 +24,11 @@ type (
 )
 
 // NewDefaultRateLimiter creates a new rate limiter
-func NewDefaultRateLimiter(redisClient *redis.Client, limit int, period time.Duration) (*DefaultRateLimiter, error) {
+func NewDefaultRateLimiter(
+	redisClient *redis.Client,
+	limit int,
+	period time.Duration,
+) (*DefaultRateLimiter, error) {
 	// Check if the Redis client is nil
 	if redisClient == nil {
 		return nil, godatabasesredis.NilClientError
@@ -69,7 +73,7 @@ func (d *DefaultRateLimiter) Limit(ip string) error {
 
 	// If the rate limit is exceeded, return an error
 	if count >= int64(d.limit) {
-		return TooManyRequestsError
+		return ErrTooManyRequests
 	}
 
 	// Increment the request count

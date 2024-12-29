@@ -13,10 +13,13 @@ type Middleware struct {
 }
 
 // NewMiddleware creates a new rate limiter middleware
-func NewMiddleware(rateLimiter goratelimiterredis.RateLimiter) (*Middleware, error) {
+func NewMiddleware(rateLimiter goratelimiterredis.RateLimiter) (
+	*Middleware,
+	error,
+) {
 	// Check if the rate limiter is nil
 	if rateLimiter == nil {
-		return nil, goratelimiterredis.NilRateLimiterError
+		return nil, goratelimiterredis.ErrNilRateLimiter
 	}
 
 	return &Middleware{
@@ -33,7 +36,7 @@ func (m *Middleware) Limit() gin.HandlerFunc {
 		// Limit the number of requests per IP address
 		if err := m.rateLimiter.Limit(ip); err != nil {
 			// Check if the rate limit is exceeded
-			if errors.Is(err, goratelimiterredis.TooManyRequestsError) {
+			if errors.Is(err, goratelimiterredis.ErrTooManyRequests) {
 				c.AbortWithStatus(http.StatusTooManyRequests)
 				return
 			}
