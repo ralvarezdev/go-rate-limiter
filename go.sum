@@ -70,11 +70,13 @@ github.com/ralvarezdev/go-databases v0.2.2/go.mod h1:Pa3Zdz7hrUoIqSA4FpZzPnuwsum
 github.com/ralvarezdev/go-databases v0.3.5/go.mod h1:BuraFROR2c+89COE4z77GfCLdfBks6tjAjB5sZehW4w=
 github.com/ralvarezdev/go-databases v0.3.6/go.mod h1:8DU2j7UTB531ERFCSmJMOTph2zEFr3LvZslXqNi38VA=
 github.com/ralvarezdev/go-databases v0.3.7/go.mod h1:8DU2j7UTB531ERFCSmJMOTph2zEFr3LvZslXqNi38VA=
+github.com/ralvarezdev/go-databases v0.3.8/go.mod h1:ONpTCKufMjj76vRCOIa6+2YszW9q4xk1zvQnbipYeJw=
 github.com/ralvarezdev/go-logger v0.1.0 h1:i2AI1nlxU6Hizvk75Vc8wtFydiVrqIeeRbJwiuO/69A=
 github.com/ralvarezdev/go-logger v0.1.0/go.mod h1:v5OvFrkS+wsYNTCVegXWiRhBtcYrQJr4LDMDntvpAos=
 github.com/ralvarezdev/go-logger v0.2.2/go.mod h1:v5OvFrkS+wsYNTCVegXWiRhBtcYrQJr4LDMDntvpAos=
 github.com/ralvarezdev/go-logger v0.3.0/go.mod h1:v5OvFrkS+wsYNTCVegXWiRhBtcYrQJr4LDMDntvpAos=
 github.com/ralvarezdev/go-logger v0.4.3/go.mod h1:IUxZUO1YOByDagoOfFnmz2EHD30Z9TPufXrkDlucWTM=
+github.com/ralvarezdev/go-logger v0.4.4/go.mod h1:oOZtH3SM9tyvfxeJi0dnDEYPPM+ZZ07ItVv2bPawyPk=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
 github.com/stretchr/objx v0.5.0/go.mod h1:Yh+to48EsGEfYuaHDzXPcE3xhTkx73EhmCGUpEOglKo=
