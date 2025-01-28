@@ -4,7 +4,8 @@ import (
 	"context"
 	"errors"
 	"github.com/go-redis/redis/v8"
-	godatabasesredis "github.com/ralvarezdev/go-databases/redis"
+	godatabases "github.com/ralvarezdev/go-databases"
+	gostringsadd "github.com/ralvarezdev/go-strings/add"
 	"strconv"
 	"time"
 )
@@ -31,19 +32,19 @@ func NewDefaultRateLimiter(
 ) (*DefaultRateLimiter, error) {
 	// Check if the Redis client is nil
 	if redisClient == nil {
-		return nil, godatabasesredis.NilClientError
+		return nil, godatabases.ErrNilConnection
 	}
 
 	return &DefaultRateLimiter{
-		redisClient: redisClient,
-		limit:       limit,
-		period:      period,
+		redisClient,
+		limit,
+		period,
 	}, nil
 }
 
 // GetKey gets the rate limiter key
 func (d *DefaultRateLimiter) GetKey(ip string) string {
-	return godatabasesredis.GetKey(ip, RateLimiterPrefix)
+	return gostringsadd.Prefixes(ip, KeySeparator, KeyPrefix)
 }
 
 // SetInitialValue sets the initial value for the given key

@@ -5,7 +5,8 @@ go 1.23.4
 require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/ralvarezdev/go-databases v0.3.9
+	github.com/ralvarezdev/go-databases v0.5.0
+	github.com/ralvarezdev/go-strings v0.1.7
 )
 
 require (
@@ -28,9 +29,8 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
-	github.com/ralvarezdev/go-flags v0.3.1 // indirect
-	github.com/ralvarezdev/go-logger v0.4.5 // indirect
-	github.com/ralvarezdev/go-strings v0.1.0 // indirect
+	github.com/ralvarezdev/go-flags v0.3.2 // indirect
+	github.com/ralvarezdev/go-logger v0.4.6 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	golang.org/x/arch v0.8.0 // indirect

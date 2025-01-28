@@ -7,10 +7,12 @@ import (
 	"net/http"
 )
 
-// Middleware struct
-type Middleware struct {
-	rateLimiter goratelimiterredis.RateLimiter
-}
+type (
+	// Middleware struct
+	Middleware struct {
+		rateLimiter goratelimiterredis.RateLimiter
+	}
+)
 
 // NewMiddleware creates a new rate limiter middleware
 func NewMiddleware(rateLimiter goratelimiterredis.RateLimiter) (
@@ -23,7 +25,7 @@ func NewMiddleware(rateLimiter goratelimiterredis.RateLimiter) (
 	}
 
 	return &Middleware{
-		rateLimiter: rateLimiter,
+		rateLimiter,
 	}, nil
 }
 
