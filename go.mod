@@ -4,8 +4,8 @@ go 1.24.0
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/ralvarezdev/go-databases v0.6.0
-	github.com/ralvarezdev/go-strings v0.1.14
+	github.com/ralvarezdev/go-databases v0.6.1
+	github.com/ralvarezdev/go-strings v0.1.15
 )
 
 require (
