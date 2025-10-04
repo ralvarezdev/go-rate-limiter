@@ -3,19 +3,15 @@ package redis
 import (
 	"context"
 	"errors"
+	"strconv"
+	"time"
+
 	"github.com/go-redis/redis/v8"
 	godatabases "github.com/ralvarezdev/go-databases"
 	gostringsadd "github.com/ralvarezdev/go-strings/add"
-	"strconv"
-	"time"
 )
 
 type (
-	// RateLimiter interface
-	RateLimiter interface {
-		Limit(ip string) error
-	}
-
 	// DefaultRateLimiter struct
 	DefaultRateLimiter struct {
 		redisClient *redis.Client
@@ -25,6 +21,17 @@ type (
 )
 
 // NewDefaultRateLimiter creates a new rate limiter
+//
+// Parameters:
+//
+//   - redisClient: Redis client
+//   - limit: Maximum number of requests allowed within the specified period
+//   - period: Time duration for the rate limit window
+//
+// Returns:
+//
+//   - *DefaultRateLimiter: Pointer to the created DefaultRateLimiter instance
+//   - error: Error if the Redis client is nil
 func NewDefaultRateLimiter(
 	redisClient *redis.Client,
 	limit int,
@@ -43,18 +50,42 @@ func NewDefaultRateLimiter(
 }
 
 // GetKey gets the rate limiter key
-func (d *DefaultRateLimiter) GetKey(ip string) string {
+//
+// Parameters:
+//
+//   - ip: IP address of the client
+//
+// Returns:
+//
+//   - string: Rate limiter key
+func (d DefaultRateLimiter) GetKey(ip string) string {
 	return gostringsadd.Prefixes(ip, KeySeparator, KeyPrefix)
 }
 
 // SetInitialValue sets the initial value for the given key
-func (d *DefaultRateLimiter) SetInitialValue(key string) error {
+//
+// Parameters:
+//
+//   - key: Key to set the initial value for
+//
+// Returns:
+//
+//   - error: Error if the operation fails
+func (d DefaultRateLimiter) SetInitialValue(key string) error {
 	_, err := d.redisClient.Set(context.Background(), key, 1, d.period).Result()
 	return err
 }
 
 // Limit limits the rate of requests
-func (d *DefaultRateLimiter) Limit(ip string) error {
+//
+// Parameters:
+//
+//   - ip: IP address of the client
+//
+// Returns:
+//
+//   - error: Error if the rate limit is exceeded or if the operation fails
+func (d DefaultRateLimiter) Limit(ip string) error {
 	key := d.GetKey(ip)
 
 	// Check the current rate limit
