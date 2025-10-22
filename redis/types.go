@@ -97,7 +97,10 @@ func (d DefaultRateLimiter) Limit(ip string) error {
 	// Parse value
 	var count int64
 	if err == nil {
-		count, _ = strconv.ParseInt(value, 10, 64)
+		count, err = strconv.ParseInt(value, 10, 64)
+		if err != nil {
+			return err
+		}
 	} else {
 		// Set the initial value
 		return d.SetInitialValue(key)
